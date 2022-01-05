@@ -21,7 +21,13 @@ function ItemForm(props) {
 
 
   return (
-    <form className="NewItem" onSubmit ={(event) => props.onItemFormSubmit(event, newItem)} >
+    <form className="NewItem" onSubmit ={(event) => {
+      event.preventDefault()
+      return (
+        props.onItemFormSubmit(newItem)
+      )
+      } } >
+
       <label>
         Name:
         <input type="text" name="name" value={props.newName} onChange={props.onNameChange}/>

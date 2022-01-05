@@ -26,18 +26,18 @@ function ShoppingList({ items }) {
 
   //Set new state for the ItemForm new item name
   function handleNewName(event){
-    setNewName(event.target.value);
+    setNewName(() => event.target.value);
     
   };
 
   //Set new state for the ItemForm new item category 
   function handleNewCategory(event){
-    setNewCategory(event.target.value);
+    setNewCategory(() => event.target.value);
   };
 
   //Sumbit new item from ItemForm
-  function handleNewItemSubmit(event, submittedItem){
-    event.preventDefault(); 
+  function handleNewItemSubmit(submittedItem){
+   // event.preventDefault(); 
     setItemsArr([...itemsArr, submittedItem])
     setNewName("");
     setNewCategory("Produce")
